@@ -6,16 +6,16 @@ import {
   AutoIncrement,
   CreatedAt,
 } from 'sequelize-typescript';
-@Table({ tableName: 'notes' })
-export class Note extends Model {
+@Table({ tableName: 'tags' })
+export class Tag extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column
   id: number;
   @Column
-  title: string;
+  note_id: string;
   @Column
-  content: string;
+  title: string;
   @CreatedAt
   @Column({ field: 'created_at' })
   createdAt: Date;
