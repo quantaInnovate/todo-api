@@ -1,3 +1,9 @@
+
+## Read me 
+## Database
+script database for create table in the database package and run script in mysql v.8 
+you can run mysql by docker 
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
@@ -71,4 +77,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
->>>>>>> master
+
+## Database
+script database for create table in the database package and run script in mysql v.8 
+you can run mysql by docker 
+
