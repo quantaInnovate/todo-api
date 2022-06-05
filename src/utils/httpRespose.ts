@@ -2,7 +2,6 @@ import { HttpStatus } from '@nestjs/common';
 import * as dayjs from 'dayjs';
 export function JsonResponse(httpCode, data) {
   let dataObject: any = {};
-  console.log('=dat', data)
   switch (httpCode) {
     case HttpStatus.OK:
       dataObject = data;

@@ -6,7 +6,7 @@ import {
   AutoIncrement,
   CreatedAt,
   BelongsTo,
-  ForeignKey
+  ForeignKey,
 } from 'sequelize-typescript';
 import { Note } from '../../note/entities/note.entity';
 @Table({ tableName: 'tags', timestamps: false })
@@ -26,6 +26,3 @@ export class Tag extends Model {
   @BelongsTo(() => Note)
   note: Note;
 }
-// Note.
-
-// Note.belongsTo(Tag);

@@ -4,9 +4,6 @@ import { Note } from '../note/entities/note.entity';
 import { Tag } from '../tag/entities/tag.entity';
 import { JsonResponse } from '../utils/httpRespose';
 import * as dayjs from 'dayjs';
-import * as _ from 'lodash';
-import * as Op from 'sequelize';
-
 @Injectable()
 export class NoteService {
   async create(createNoteDto: CreateNoteDto) {
@@ -14,7 +11,6 @@ export class NoteService {
     interface Note {
       dic: { [name: string]: any };
     }
-
     const noteObject: Note = {
       dic: {
         title: title,
@@ -37,7 +33,6 @@ export class NoteService {
           .map((x) => ({ note_id: note.id, name: x, createdAt: dayjs() }));
         await Tag.bulkCreate(tagList);
       }
-      console.log('=noteObject', note.id);
       if (note) {
         result = JsonResponse(HttpStatus.OK, {
           status: true,
@@ -58,18 +53,16 @@ export class NoteService {
     try {
       const option: any = {
         model: Tag,
-      }
+      };
       if (query.tag) {
         option.where = { name: query.tag };
       }
-      console.log('option===', option)
       const data = await Note.findAll({
         include: [option],
         order: [[query.orderby || 'createdAt', query.sorted || 'desc']],
       });
       result = JsonResponse(HttpStatus.OK, data);
     } catch (error) {
-      // console.log('=error.message', error.message);
       result = JsonResponse(HttpStatus.BAD_GATEWAY, {
         status: false,
         message: error.message,
