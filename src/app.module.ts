@@ -7,7 +7,14 @@ import { databaseProviders } from './database.provider';
 import { TagModule } from './tag/tag.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }), NoteModule, TagModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: ['.env.development.local', '.env.development'],
+    }),
+    NoteModule,
+    TagModule,
+  ],
   controllers: [AppController],
   providers: [...databaseProviders, AppService],
 })
