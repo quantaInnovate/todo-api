@@ -5,18 +5,27 @@ import {
   PrimaryKey,
   AutoIncrement,
   CreatedAt,
+  BelongsTo,
+  ForeignKey
 } from 'sequelize-typescript';
-@Table({ tableName: 'tags' })
+import { Note } from '../../note/entities/note.entity';
+@Table({ tableName: 'tags', timestamps: false })
 export class Tag extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column
   id: number;
+  @ForeignKey(() => Note)
   @Column
   note_id: string;
   @Column
-  title: string;
+  name: string;
   @CreatedAt
   @Column({ field: 'created_at' })
   createdAt: Date;
+  @BelongsTo(() => Note)
+  note: Note;
 }
+// Note.
+
+// Note.belongsTo(Tag);

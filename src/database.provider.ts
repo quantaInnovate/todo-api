@@ -24,7 +24,6 @@ export const databaseProviders = [
         },
         define: {
           charset: 'utf8',
-          timestamps: false,
         },
       });
       sequelize.addModels([Note, Tag]);

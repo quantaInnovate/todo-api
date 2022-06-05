@@ -1,0 +1,17 @@
+GET http://localhost:3000/note/?tag=tag1&orderby=title&sorted=desc HTTP/1.1
+
+
+### create note
+
+POST http://localhost:3000/note HTTP/1.1
+content-type: application/json
+
+{
+    "title":"dasd1",
+    "content":"Lorem Ipsum is simply dummy text of t",
+    "tags":"tag1,tag2,tag3"
+}
+
+### get note detail
+
+GET http://localhost:3000/note/6 HTTP/1.1
